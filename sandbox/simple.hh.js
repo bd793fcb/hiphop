@@ -10,7 +10,7 @@ hiphop module treatmentSchedule() {
     in tick;
     in switchTreatment;
     out givePlacebo;
-    out giveMinocycline;
+    out giveSertraline;
 
     abort (switchTreatment.now) {
         loop {
@@ -20,7 +20,7 @@ hiphop module treatmentSchedule() {
     }
 
     loop {
-        emit giveMinocycline("100mg");
+        emit giveSertraline("100mg");
         await count(2, tick.now);
     }
 }
@@ -51,11 +51,11 @@ hiphop module questionnaireSchedule() {
 hiphop module HelloWorld() {
     in tick; in severeAdverseEffect;
     out givePlacebo;
-    out giveMinocycline;
+    out giveSertraline;
     out collectQuestionnaire;
     out switchTreatment;
 
-    // run MinoCycline schedule
+    // run Sertraline schedule
     fork {
         await (severeAdverseEffect.now);
         hop {
@@ -73,7 +73,7 @@ hiphop module HelloWorld() {
 const m = new ReactiveMachine(HelloWorld);
 function logEvent(e) { console.log("got: ", e); }
 m.addEventListener("givePlacebo", logEvent);
-m.addEventListener("giveMinocycline", logEvent);
+m.addEventListener("giveSertraline", logEvent);
 m.addEventListener("collectQuestionnaire", logEvent);
 m.addEventListener("switchTreatment", logEvent);
 // m.react();

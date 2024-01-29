@@ -7,7 +7,7 @@ hiphop module generateQuestionaireResult() {
         const placeboEffectProb = 5 / 10;
         setTimeout(() => {
             this.notify(true);
-        }, 1500); // this will come back on next tick
+        }, 1600); // this will come back on next tick
         // this.notify(Math.random() < placeboEffectProb);
     }
 }
@@ -16,7 +16,7 @@ hiphop module treatmentSchedule() {
     in tick;
     in switchTreatment;
     out givePlacebo;
-    out giveMinocycline;
+    out giveSertraline;
 
     out giveTreatment;
 
@@ -28,14 +28,14 @@ hiphop module treatmentSchedule() {
     } par {
         abort (switchTreatment.now) {
             loop {
-                await (giveTreatment.now);
                 emit givePlacebo(giveTreatment.nowval);
+                await (giveTreatment.now);
             }
         }
 
         loop {
             await (giveTreatment.now);
-            emit giveMinocycline(giveTreatment.nowval);
+            emit giveSertraline(giveTreatment.nowval);
         }
     }
 }
@@ -63,12 +63,11 @@ hiphop module questionnaireSchedule() {
 hiphop module HelloWorld() {
     in tick; in severeAdverseEffect;
     out givePlacebo;
-    out giveMinocycline;
+    out giveSertraline;
     out collectQuestionnaire;
     out treatmentUneffective;
     out switchTreatment;
 
-    // run MinoCycline schedule
     fork {
         await (severeAdverseEffect.now);
         hop {
@@ -89,7 +88,7 @@ hiphop module HelloWorld() {
 const m = new ReactiveMachine(HelloWorld);
 function logEvent(e) { console.log("got: ", e); }
 m.addEventListener("givePlacebo", logEvent);
-m.addEventListener("giveMinocycline", logEvent);
+m.addEventListener("giveSertraline", logEvent);
 m.addEventListener("collectQuestionnaire", logEvent);
 m.addEventListener("switchTreatment", logEvent);
 // m.react();
@@ -100,7 +99,9 @@ for (let i = 0; i <= 10; ++i) {
     if (Math.random() < severeAdverseEffectProb) {
         signal.severeAdverseEffect = true;
     }
-    console.log(i, signal);
+    console.log("-------", i, signal, "-------");
     m.react(signal);
-    await new Promise((resolve) => setTimeout(resolve, 1000));
+    await new Promise((resolve) => setTimeout(resolve, 500));
+    console.log("--------  500ms  -------")
+    await new Promise((resolve) => setTimeout(resolve, 500));
 }

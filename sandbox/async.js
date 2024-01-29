@@ -18,7 +18,7 @@ async function react(signal) {
     if (!withdrawn) {
         if (tickCounter % 2 == 0) {
             if (nonrespondentCounter >= 2) {
-                console.log("giveMinocycline 100mg")
+                console.log("giveSertraline 100mg")
             } else {
                 console.log("givePlacebo 100mg")
             }
@@ -28,11 +28,11 @@ async function react(signal) {
         console.log("collectQuestionnaire")
         if (await generateQuestionaireResult()) {
             if (nonrespondentCounter > 2) {
-                console.log("not responding to minocycline");
+                console.log("not responding to sertraline");
             } else {
                 console.log("not responding to placebo");
                 if (++nonrespondentCounter == 2 && !withdrawn) {
-                    console.log("switching to minocycline");
+                    console.log("switching to sertraline");
                 }
             }
         }
