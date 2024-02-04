@@ -1,0 +1,184 @@
+<mxfile host="app.diagrams.net" modified="2024-02-04T21:44:12.160Z" agent="Mozilla/5.0 (X11; Linux x86_64; rv:109.0) Gecko/20100101 Firefox/115.0" etag="oijJSzO_LercMg0KUQRN" version="23.1.1" type="device">
+  <diagram name="Page 1" id="JYS1dlGiIfR9Ppf5420F">
+    <mxGraphModel dx="1289" dy="842" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="fRgV43Z3tNAUoXxM1xi4-1" value="Main" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="60" y="160" width="150" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="fRgV43Z3tNAUoXxM1xi4-2" value="TreatmentSchedule" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="80" y="235" width="130" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="fRgV43Z3tNAUoXxM1xi4-3" value="QuestionnaireSchedule" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="80" y="460" width="130" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="fRgV43Z3tNAUoXxM1xi4-4" value="run ..." style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="240" y="165" width="100" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="fRgV43Z3tNAUoXxM1xi4-5" value="" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="440" y="245" width="100" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="fRgV43Z3tNAUoXxM1xi4-6" value="" style="endArrow=none;html=1;rounded=0;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="239" y="960" as="sourcePoint" />
+            <mxPoint x="239" y="100" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="fRgV43Z3tNAUoXxM1xi4-7" value="" style="endArrow=none;html=1;rounded=0;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="440" y="960" as="sourcePoint" />
+            <mxPoint x="438.82" y="100" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="fRgV43Z3tNAUoXxM1xi4-8" value="Dosage" style="rounded=0;whiteSpace=wrap;html=1;dashed=1;" vertex="1" parent="1">
+          <mxGeometry x="130" y="295" width="80" height="45" as="geometry" />
+        </mxCell>
+        <mxCell id="fRgV43Z3tNAUoXxM1xi4-9" value="Frequnecy" style="rounded=0;whiteSpace=wrap;html=1;dashed=1;" vertex="1" parent="1">
+          <mxGeometry x="130" y="340" width="80" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="fRgV43Z3tNAUoXxM1xi4-10" value="Treatment" style="rounded=0;whiteSpace=wrap;html=1;dashed=1;" vertex="1" parent="1">
+          <mxGeometry x="130" y="390" width="80" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="fRgV43Z3tNAUoXxM1xi4-11" value="Frequnecy" style="rounded=0;whiteSpace=wrap;html=1;dashed=1;" vertex="1" parent="1">
+          <mxGeometry x="130" y="520" width="80" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="fRgV43Z3tNAUoXxM1xi4-12" value="Async Invocation" style="rounded=0;whiteSpace=wrap;html=1;dashed=1;" vertex="1" parent="1">
+          <mxGeometry x="130" y="570" width="80" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="fRgV43Z3tNAUoXxM1xi4-13" value="ScheduleCoordinator" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="80" y="750" width="130" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="fRgV43Z3tNAUoXxM1xi4-14" value="ScheduleMonitor" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="80" y="890" width="130" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="fRgV43Z3tNAUoXxM1xi4-15" value="Adverse&amp;nbsp; Event" style="rounded=0;whiteSpace=wrap;html=1;dashed=1;" vertex="1" parent="1">
+          <mxGeometry x="130" y="950" width="80" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="fRgV43Z3tNAUoXxM1xi4-16" value="Switching" style="rounded=0;whiteSpace=wrap;html=1;dashed=1;" vertex="1" parent="1">
+          <mxGeometry x="130" y="810" width="80" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="fRgV43Z3tNAUoXxM1xi4-17" value="treatmentDosage([100, &#39;mg&#39;])" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="240" y="298.75" width="170" height="37.5" as="geometry" />
+        </mxCell>
+        <mxCell id="fRgV43Z3tNAUoXxM1xi4-18" value="giveTreatment()" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="240" y="346.25" width="170" height="37.5" as="geometry" />
+        </mxCell>
+        <mxCell id="fRgV43Z3tNAUoXxM1xi4-19" value="givePlacebo([100, &#39;mg&#39;])" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="240" y="396.25" width="170" height="37.5" as="geometry" />
+        </mxCell>
+        <mxCell id="fRgV43Z3tNAUoXxM1xi4-20" value="collectQuestionnaire()" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="240" y="526.25" width="170" height="37.5" as="geometry" />
+        </mxCell>
+        <mxCell id="fRgV43Z3tNAUoXxM1xi4-21" value="run ..." style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="240" y="576.25" width="170" height="37.5" as="geometry" />
+        </mxCell>
+        <mxCell id="fRgV43Z3tNAUoXxM1xi4-22" value="Async" style="rounded=0;whiteSpace=wrap;html=1;dashed=1;dashPattern=1 4;" vertex="1" parent="1">
+          <mxGeometry x="150" y="620" width="60" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="fRgV43Z3tNAUoXxM1xi4-23" value="Pending" style="rounded=0;whiteSpace=wrap;html=1;dashed=1;dashPattern=1 4;" vertex="1" parent="1">
+          <mxGeometry x="150" y="670" width="60" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="fRgV43Z3tNAUoXxM1xi4-24" value="pendingResult()" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="240" y="676.25" width="170" height="37.5" as="geometry" />
+        </mxCell>
+        <mxCell id="fRgV43Z3tNAUoXxM1xi4-25" value="pendingResult()" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="440" y="676.25" width="100" height="37.5" as="geometry" />
+        </mxCell>
+        <mxCell id="fRgV43Z3tNAUoXxM1xi4-26" value="Notify(score)" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="540" y="620" width="140" height="37.5" as="geometry" />
+        </mxCell>
+        <mxCell id="fRgV43Z3tNAUoXxM1xi4-27" value="treatmentUneffective()" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="540" y="676.25" width="140" height="37.5" as="geometry" />
+        </mxCell>
+        <mxCell id="fRgV43Z3tNAUoXxM1xi4-28" value="treatmentDosage([50, &#39;mg&#39;])" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="540" y="307" width="170" height="37.5" as="geometry" />
+        </mxCell>
+        <mxCell id="fRgV43Z3tNAUoXxM1xi4-29" value="" style="endArrow=none;html=1;rounded=0;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="741.1800000000001" y="975" as="sourcePoint" />
+            <mxPoint x="740" y="115" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="fRgV43Z3tNAUoXxM1xi4-30" value="giveTreatment()" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="740" y="352.5" width="170" height="37.5" as="geometry" />
+        </mxCell>
+        <mxCell id="fRgV43Z3tNAUoXxM1xi4-31" value="givePlacebo([50, &#39;mg&#39;])" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="740" y="402.5" width="170" height="37.5" as="geometry" />
+        </mxCell>
+        <mxCell id="fRgV43Z3tNAUoXxM1xi4-32" value="" style="endArrow=none;html=1;rounded=0;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="951.1800000000001" y="975" as="sourcePoint" />
+            <mxPoint x="950" y="115" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="fRgV43Z3tNAUoXxM1xi4-33" value="collectQuestionnaire()" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="950" y="520" width="170" height="37.5" as="geometry" />
+        </mxCell>
+        <mxCell id="fRgV43Z3tNAUoXxM1xi4-34" value="run ..." style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="950" y="570" width="170" height="37.5" as="geometry" />
+        </mxCell>
+        <mxCell id="fRgV43Z3tNAUoXxM1xi4-35" value="pendingResult()" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="950" y="676.25" width="170" height="37.5" as="geometry" />
+        </mxCell>
+        <mxCell id="fRgV43Z3tNAUoXxM1xi4-36" value="pendingResult()" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="1200" y="676.25" width="100" height="37.5" as="geometry" />
+        </mxCell>
+        <mxCell id="fRgV43Z3tNAUoXxM1xi4-37" value="Notify(score)" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="1300" y="620" width="140" height="37.5" as="geometry" />
+        </mxCell>
+        <mxCell id="fRgV43Z3tNAUoXxM1xi4-38" value="treatmentUneffective()" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="1300" y="676.25" width="140" height="37.5" as="geometry" />
+        </mxCell>
+        <mxCell id="fRgV43Z3tNAUoXxM1xi4-39" value="" style="endArrow=none;html=1;rounded=0;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="1200" y="1020" as="sourcePoint" />
+            <mxPoint x="1200" y="100" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="fRgV43Z3tNAUoXxM1xi4-40" value="giveTreatment()" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="1300" y="352.5" width="150" height="37.5" as="geometry" />
+        </mxCell>
+        <mxCell id="fRgV43Z3tNAUoXxM1xi4-41" value="&lt;div&gt;switchTreatment()&lt;/div&gt;" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="1310" y="810" width="130" height="37.5" as="geometry" />
+        </mxCell>
+        <mxCell id="fRgV43Z3tNAUoXxM1xi4-42" value="giveSertraline([50, &#39;mg&#39;])" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="1300" y="402.5" width="150" height="37.5" as="geometry" />
+        </mxCell>
+        <mxCell id="fRgV43Z3tNAUoXxM1xi4-43" value="" style="endArrow=none;html=1;rounded=0;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="1501.1799999999998" y="968.75" as="sourcePoint" />
+            <mxPoint x="1500" y="108.75" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="fRgV43Z3tNAUoXxM1xi4-44" value="severeAdverseEffect()" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="1500" y="956.25" width="170" height="37.5" as="geometry" />
+        </mxCell>
+        <mxCell id="fRgV43Z3tNAUoXxM1xi4-45" value="console.log(&quot;withdraw&quot;)" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="1500" y="160" width="170" height="37.5" as="geometry" />
+        </mxCell>
+        <mxCell id="fRgV43Z3tNAUoXxM1xi4-46" value="" style="endArrow=none;html=1;rounded=0;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="1761.1799999999998" y="968.75" as="sourcePoint" />
+            <mxPoint x="1760" y="108.75" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="fRgV43Z3tNAUoXxM1xi4-47" value="" style="endArrow=none;html=1;rounded=0;" edge="1" parent="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="1981.1799999999998" y="968.75" as="sourcePoint" />
+            <mxPoint x="1980" y="108.75" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="fRgV43Z3tNAUoXxM1xi4-48" value="collectQuestionnaire()" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="1983" y="526.25" width="170" height="37.5" as="geometry" />
+        </mxCell>
+        <mxCell id="fRgV43Z3tNAUoXxM1xi4-49" value="run ..." style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="1983" y="576.25" width="170" height="37.5" as="geometry" />
+        </mxCell>
+        <mxCell id="fRgV43Z3tNAUoXxM1xi4-50" value="pendingResult()" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="1983" y="682.5" width="170" height="37.5" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
