@@ -2,19 +2,36 @@ import { ReactiveMachine } from "@hop/hiphop";
 
 hiphop module treatmentSchedule() {
     in tick;
+    in treatmentUneffective;
+    in treatmentSignificantlyEffective;
     in switchTreatment;
     in pendingResult;
     out givePlacebo;
     out giveSertraline;
 
     inout giveTreatment;
+    inout treatmentDosage;
 
     fork {
+        // control treatment dosage
+        emit treatmentDosage([100, "mg"]);
+        dosageAdjustement: loop {
+            if (treatmentUneffective.now) {
+                emit treatmentDosage([200, "mg"]);
+            }
+            else if (treatmentSignificantlyEffective.now) {
+                emit treatmentDosage([50, "mg"]);
+            }
+            yield;
+        }
+    } par {
+        // control treatment frequency
         loop {
-            emit giveTreatment("100mg");
+            emit giveTreatment(treatmentDosage.nowval);
             await count(2, tick.now);
         }
     } par {
+        // control treatment switching
         emit givePlacebo(giveTreatment.nowval);
 
         abort (switchTreatment.now) {
@@ -37,18 +54,29 @@ hiphop module generateQuestionaireResult() {
     in tick;
     out pendingResult;
     out questionnaireResult;
+    out treatmentUneffective;
+    out treatmentSignificantlyEffective;
 
     fork {
         abort (questionnaireResult.now) {
             sustain pendingResult();
         }
+        if (questionnaireResult.nowval <= 8) {
+            emit treatmentSignificantlyEffective();
+        }
+        else if (questionnaireResult.nowval > 15) {
+            emit treatmentUneffective();
+        }
     } par {
         async (questionnaireResult) {
-            const placeboEffectProb = 5 / 10;
             setTimeout(() => {
-                this.notify(true);
+                // this.notify(30); // uneffective
+                // this.notify(5); // effective
+                // this.notify(10); // maintain
+                let randScore = Math.random()*25;
+                // console.log(randScore);
+                this.notify(randScore);
             }, 1600); // this will come back on next tick
-            // this.notify(Math.random() < placeboEffectProb);
         }
     }
 }
@@ -56,9 +84,9 @@ hiphop module generateQuestionaireResult() {
 hiphop module questionnaireSchedule() {
     in tick; 
     out collectQuestionnaire;
-    out switchTreatment;
-    out treatmentUneffective;
     out pendingResult;
+    out treatmentUneffective;
+    out treatmentSignificantlyEffective;
 
     fork {
         loop {
@@ -67,10 +95,7 @@ hiphop module questionnaireSchedule() {
         }
     } par {
         do {        
-            run generateQuestionaireResult() { 
-                treatmentUneffective as questionnaireResult,
-                pendingResult as pendingResult,
-            };
+            run generateQuestionaireResult() { * };
         } every (collectQuestionnaire.now);
     }
 }
@@ -82,6 +107,7 @@ hiphop module HelloWorld() {
     out collectQuestionnaire;
     out pendingResult;
     out treatmentUneffective;
+    out treatmentSignificantlyEffective;
     out switchTreatment;
 
     fork {
@@ -107,8 +133,8 @@ m.addEventListener("givePlacebo", logEvent);
 m.addEventListener("giveSertraline", logEvent);
 m.addEventListener("collectQuestionnaire", logEvent);
 m.addEventListener("switchTreatment", logEvent);
-// m.addEventListener("pendingResult", logEvent);
 m.addEventListener("treatmentUneffective", logEvent);
+m.addEventListener("treatmentSignificantlyEffective", logEvent);
 // m.react();
 
 const severeAdverseEffectProb = 1 / 20;
