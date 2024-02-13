@@ -1,0 +1,5 @@
+nodejs node_modules/@hop/hiphop/bin/hhc.mjs sandbox/LSDDEP/trial_ui.hh.js         \
+                                        -o sandbox/LSDDEP/._trial_ui.mjs       && \
+    sed -i -e 's/confirm = async function()/confirm = async function(question)/'  \
+            -e 's/deletepending/delete pending/' sandbox/LSDDEP/._trial_ui.mjs && \
+    nodejs --enable-source-maps sandbox/LSDDEP/._trial_ui.mjs

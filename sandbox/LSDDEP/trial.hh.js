@@ -2,7 +2,6 @@ import { ReactiveMachine } from "@hop/hiphop";
 
 import readline from 'node:readline';
 import { stdin as input, stdout as output } from 'node:process';
-import { count } from "node:console";
 
 
 hiphop module confirm(question) {

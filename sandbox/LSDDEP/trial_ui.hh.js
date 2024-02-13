@@ -4,15 +4,25 @@ import readline from 'node:readline/promises';
 import { stdin as input, stdout as output } from 'node:process';
 
 hiphop module simpleMachIO(q) {
+    // communicate to some external systems subscribed to signals on the reactive machine
+
+    // a pair of signals for each action to be taken
+    // OUT indicates that an action is now available for selection
+    // IN receives confirmation from an external system that the action has been taken
     in sigIN;
     out sigOUT;
 
+    // in this simple IO helper, once an action is made active,
+    // the action will be kept available until it is done by an external system
     abort (sigIN.now) {
         sustain sigOUT(q);
     }
 }
 
 hiphop module simpleScreen(q) {
+    // confirmation wrapper for questions during the screening process
+    // emit a given question through the reactive machine, then escalate
+    // for exclusion if a negative response is received
     in screenIN;
     out screenOUT, excluded;
 
@@ -22,6 +32,8 @@ hiphop module simpleScreen(q) {
     }
 }
 
+// trivial modules to condense the schedule module, but can be expanded
+// to include more detailed questionnaires / testing during the screening
 hiphop module prescreen() {
     in prescreenIN;
     out prescreenOUT, excluded;
@@ -75,7 +87,7 @@ hiphop module baselineSchedule() {
         run simpleMachIO("C-SSRS completed?") { cssrsIN as sigIN, cssrsOUT as sigOUT };
     }
     par {
-        run simpleMachIO("Concomitant Meds?") { concomitantIN as sigIN, concomitantOUT as sigOUT };
+        run simpleMachIO("Concomitant Meds checked?") { concomitantIN as sigIN, concomitantOUT as sigOUT };
     }
 }
 
@@ -150,10 +162,10 @@ hiphop module dosingSchedule() {
             }
             par {
                 // exactly two doses should be given per week
-                every (weekly.now) {
+                do {
                     await count(2, doseDelivered.now);
-                    emit fulfilled();
-                }
+                    sustain fulfilled();
+                } every (weekly.now)
             }
             par {
                 every (weekly.now) {
@@ -191,16 +203,16 @@ hiphop module questionnairesSchedule() {
         };
     }
     par { // monitor questionnaires completion
-        do {
+        every (questionnaireIN.now) {
             if (questionnaireIN.nowval == "ae") {
                 emit adverseEffect();
             }
 
             loop {
-                await count(2, day.now);
+                await (day.now);
                 emit missingQuestionnaireResult();
             }
-        } every (questionnaireIN.now)
+        } 
     }
 }
 
@@ -227,7 +239,7 @@ hiphop module followupSchedule() {
     par {
         every (followUp.now) {
             run simpleMachIO("MADRS completed?") { madrsIN as sigIN, madrsOUT as sigOUT };
-            run simpleMachIO("Concomitant Meds?") { concomitantIN as sigIN, concomitantOUT as sigOUT };
+            run simpleMachIO("Concomitant Meds checked?") { concomitantIN as sigIN, concomitantOUT as sigOUT };
         }
     }
 
@@ -256,7 +268,11 @@ hiphop module LSDDEP() {
     abort (excluded.pre) {
         // screening runs in series
         // any round can exclude a prospective participant and abort further progress
-        run screeningSchedule() { * };
+        // run screeningSchedule() { * };
+
+        run prescreen() { * };
+        run screenRemote() { * };
+        run screenOnsite() { * };
         emit eligible();
     }
 
@@ -320,7 +336,7 @@ while (!stopped) {
     while (choice != "n") {
         const chosenQuestion = pending[choice];
         if (chosenQuestion) {
-            sig[`${choice}IN`] = await confirm(chosenQuestion);
+            sig[`${choice}IN`] = await confirm("ACTION: " + chosenQuestion);
             delete pending[choice];
         }
         else if (sig.hasOwnProperty(`${choice}IN`)) {
@@ -337,7 +353,7 @@ while (!stopped) {
     }
 
     // next tick
-    console.log("react(", sig);
+    console.log("react(", sig, ")");
     m.react(sig);
     
 }
